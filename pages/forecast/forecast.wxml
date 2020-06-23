@@ -1,0 +1,15 @@
+<!--pages/forecast/forecast.wxml-->
+	<view class="container">
+		<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" force-use-old-canvas="true"></ec-canvas>
+	</view>
+
+<!-- 七天预报 -->
+<view class="dayly">
+	<view class="mday" wx:for="{{forecast}}" wx:key="date">
+		<view class="cday">{{item.week}}</view>
+		<view class="ctempd">{{item.cond_txt_d}}</view>
+		<view class="ctempn">{{item.cond_txt_n}}</view>
+		<view class="cwindy">{{item.wind_dir}}</view>
+		<view class="cwindy">{{item.wind_sc}}级</view>
+	</view>
+</view>

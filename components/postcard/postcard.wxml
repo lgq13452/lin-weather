@@ -1,0 +1,5 @@
+<!--components/postcard/postcard.wxml-->
+<view class="postcard">
+  <view class="ttitle">{{tip.brf}}</view>
+  <view class="ttip">{{tip.txt}}</view>
+</view>

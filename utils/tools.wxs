@@ -1,0 +1,10 @@
+var weatherChange = function (prev, next) {
+  if (prev == next) {
+    return prev
+  } else {
+    return prev + '转' + next
+  }
+}
+module.exports = {
+  weatherChange: weatherChange
+};

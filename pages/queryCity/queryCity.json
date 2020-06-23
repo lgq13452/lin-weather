@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-icon": "../../assets/iview/icon/index",
+    "i-input": "../../assets/iview/input/index",
+    "i-toast": "../../assets/iview/toast/index"
+  }
+}

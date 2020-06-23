@@ -1,0 +1,37 @@
+<!--pages/queryCity/queryCity.wxml-->
+<view class="cancel" catchtap="cancel" catchtouchend="touchend" data-white="white">
+	<view class="qtitle" wx:if="{{showAdministration}}">城市管理</view>
+	<!-- 搜索 -->
+	<view class="visearch">
+		<i-icon class="isearch" type="search" size="22" />
+		<input class="ipt" value="{{val}}" placeholder="城市名" type="text" catchtap="showAdmin" bindconfirm="getCity" confirm-type></input>
+	</view>
+	<!-- 热门城市 -->
+	<view wx:if="{{showHot}}">
+		<view class="htitle">热门城市</view>
+		<view class="slist">
+			<view class="sli" wx:for="{{topCity}}" wx:key="cid" catchtap="clickValue" data-location="{{item.location}}">{{item.location}}</view>
+		</view>
+	</view>
+
+	<!-- 城市管理 -->
+	<view class="exitCity" wx:if="{{showAdministration}}">
+		<view class="cityList" wx:for="{{cityList}}" wx:key="expires" catchlongtap="deleCity" catchtap="currentCity" data-city="{{item.data.city}}">
+			<view class="left">
+				<view class="tt">{{item.data.city}}</view>
+				<text class="bt" decode="true">空气 {{item.data.qlty}} &nbsp; {{item.data.tmp_max}}°C / {{item.data.tmp_min}}°C</text>
+			</view>
+			<view class="right">{{item.tmp}}°C</view>
+		</view>
+	</view>
+
+	<!-- 是否删除该城市 -->
+	<view class="total" wx:if="{{isShowTip}}">
+		<view class="title">确定删除该城市</view>
+		<view class="sure">
+			<view class="yes" bindtap="sureDele">是</view>
+			<view class="no" bindtap="noDele">否</view>
+		</view>
+	</view>
+</view>
+<i-toast id="toast" />

@@ -1,0 +1,139 @@
+<!--pages/home/home.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class="vpage" bindtap="noShow">
+	<view class="vtop">
+		<view class="addCity" bindtap="queryCity">
+			<i-icon type="search" size='24' color="white" />
+		</view>
+		<text class="vposition" decode="true">{{district}} &nbsp;&nbsp; {{street}}</text>
+		<view class="addCity" bindtap="addCity" wx:if="{{isSearch}}">
+			<i-icon type="add" size='24' color="white" />
+		</view>
+	</view>
+
+<i-toast id="toast" />
+
+	<!-- 温度 天气 -->
+	<view class="weather">
+		<view class="temp">{{weather.tmp}}
+			<text class="duc">°C</text></view>
+		<view class="meteorological">{{weather.cond_txt}}</view>
+		<view class="air-quality">
+			<view class="opacity"></view>
+			<view>空气{{air.qlty}} {{air.aqi}}</view>
+		</view>
+	</view>
+
+	<!-- 三天内天气 -->
+	<view class="recent-weather">
+		<view class="vweather" wx:for="{{tempForecast}}" wx:key="date">
+			<!-- <text class="vicon">{{item.cond_code_d}}</text> -->
+			<text class="vdate" decode="true">{{item.week}}</text>
+			<text class="vtemp">{{tools.weatherChange(item.cond_txt_d,item.cond_txt_n)}}</text>
+			<view class="vqlty">
+				<text class="vopacity"></text>
+				<text class="viqlty">{{item.qlty}}</text>
+			</view>
+			<text class="hei-low">{{item.tmp_max}}°C / {{item.tmp_min}}°C</text>
+		</view>
+		<view class="see-more" bindtap="getMore">
+			<view class="mask"></view>
+			<view>查看近7日天气</view>
+		</view>
+	</view>
+
+
+	<!-- 逐小时预报 -->
+	<view class="hourly">
+		<view class="mhours" wx:for="{{hourly}}" wx:key="time">
+			<view class="chour">{{item.time}}</view>
+			<view class="ctemp">{{item.tmp}}°C</view>
+			<view class="cicon">{{item.cond_txt}}</view>
+			<view class="cwindy">{{item.wind_sc}}级</view>
+		</view>
+	</view>
+
+	<!-- 今天分析 -->
+	<view class="day">
+		<view class="sunrise-sunset">
+			<view class="sunrise">
+				<image src="../../assets/img/richu.png"></image>
+				<view>日出 {{dailyForecast.sr}}</view>
+			</view>
+			<view class="sunset">
+				<image src="../../assets/img/riluo.png"></image>
+				<view>日落{{dailyForecast.ss}}</view>
+			</view>
+		</view>
+		<view class="daily-forecast">
+			<view>
+				<view class="vtitle">{{dailyForecast.wind_sc}}级</view>
+				<view class="vdesc">{{dailyForecast.wind_dir}}</view>
+			</view>
+			<view>
+				<view class="vtitle">{{dailyForecast.hum}}%</view>
+				<view class="vdesc">湿度</view>
+			</view>
+			<view>
+				<view class="vtitle">{{dailyForecast.vis}}</view>
+				<view class="vdesc">能见度</view>
+			</view>
+			<view>
+				<view class="vtitle">{{dailyForecast.pres}}hpa</view>
+				<view class="vdesc">气压</view>
+			</view>
+		</view>
+	</view>
+	<view class="air-rain">
+		<view>
+			<view>
+				<image src="../../assets/img/air.png"></image>
+				{{air.aqi}}
+			</view>
+			<view>空气{{air.qlty}}</view>
+		</view>
+
+		<view>
+			<view>
+				<image src="../../assets/img/rain.png"></image>
+				{{dailyForecast.pop}}%
+			</view>
+			<view>2小时降雨概率</view>
+		</view>
+	</view>
+
+	<!-- 指数提示 -->
+	<view class="jtips" wx:if="{{isShowTip}}">
+		<post-card tip="{{tip}}">
+		</post-card>
+	</view>
+	<!-- 各类指数 -->
+	<view class="vindex">
+		<view class="vlei" bindtap="getTips" data-tip="{{lifestyle[0]}}">
+			<image src="../../assets/img/chuanyi.png"></image>
+			<view class="jtitle">{{lifestyle[0].brf}}</view>
+		</view>
+		<view class="vlei" bindtap="getTips" data-tip="{{lifestyle[3]}}">
+			<image src="../../assets/img/zwx.png"></image>
+			<view class="jtitle">{{lifestyle[3].brf}}</view>
+		</view>
+		<view class="vlei" bindtap="getTips" data-tip="{{lifestyle[1]}}">
+			<image src="../../assets/img/huwai.png"></image>
+			<view class="jtitle">{{lifestyle[1].brf}}</view>
+		</view>
+		<view class="vlei" bindtap="getTips" data-tip="{{lifestyle[4]}}">
+			<image src="../../assets/img/xiche.png"></image>
+			<view class="jtitle">{{lifestyle[4].brf}}</view>
+		</view>
+		<view class="vlei" bindtap="getTips" data-tip="{{lifestyle[2]}}">
+			<image src="../../assets/img/lvyou.png"></image>
+			<view class="jtitle">{{lifestyle[2].brf}}</view>
+		</view>
+		<view class="vlei" bindtap="getTips" data-tip="{{lifestyle[5]}}">
+			<image src="../../assets/img/jiaotong.png"></image>
+			<view class="jtitle">{{lifestyle[5].brf}}</view>
+		</view>
+	</view>
+</view>
+
+<i-spin fix wx:if="{{ spinShow }}" size="large" i-class="vloading"></i-spin>

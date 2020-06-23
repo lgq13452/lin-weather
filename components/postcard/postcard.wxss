@@ -1,0 +1,15 @@
+/* components/postcard/postcard.wxss */
+
+.postcard {
+  height: 155px;
+  background-color: #87a0c9;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  /* margin: 30px 0; */
+  padding: 30px 15px;
+}
+
+.ttip {
+  margin-top: 15px;
+  font-size: 18px;
+}

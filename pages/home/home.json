@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-button": "../../assets/iview/button/index",
+    "i-icon": "../../assets/iview/icon/index",
+    "post-card": "../../components/postcard/postcard",
+    "i-toast": "../../assets/iview/toast/index",
+    "i-spin": "../../assets/iview/spin/index"
+  },
+  "enablePullDownRefresh": true
+}

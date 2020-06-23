@@ -1,0 +1,128 @@
+/* pages/queryCity/queryCity.wxss */
+.qtitle {
+  padding: 15px;
+  font-size: 30px;
+  font-weight: 80
+}
+
+.ipt {
+  border-radius: 12px;
+  margin: 10px 15px;
+  padding: 8px 30px;
+  background-color: #f4f4f4;
+}
+
+.visearch {
+  position: relative;
+}
+
+.isearch {
+  position: absolute;
+  top: 7px;
+  margin-left: 20px;
+}
+
+.htitle {
+  margin: 15px;
+}
+
+.slist {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+
+.sli {
+  width: 30%;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  margin: 5px;
+  line-height: 40px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.exitCity {
+  margin: 15px;
+}
+
+.cityList {
+  height: 80px;
+  background-color: #869fc8;
+  border-radius: 18px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.left {
+  flex: 8;
+}
+
+.tt {
+  font-size: 20px;
+}
+
+.bt {
+  padding-top: 5px;
+  font-size: 14px;
+  color: #c2cfe3;
+}
+
+.right {
+  flex: 2;
+  font-size: 32px;
+}
+
+.total {
+  background-color: #f4f4f4;
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 150px;
+  border-radius: 15px;
+  font-size: 24px;
+}
+
+.title {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.sure {
+  display: flex;
+  /* justify-content: space-evenly; */
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.yes {
+  background-color: red;
+  width: 50%;
+  border-bottom-left-radius: 15px;
+}
+
+.no {
+  background-color: green;
+  width: 50%;
+  border-bottom-right-radius: 15px;
+}
+
+page {
+  position: relative;
+  height: 100%;
+}
+.cancel{
+  height: 100vh;
+}
